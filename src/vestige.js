@@ -3,38 +3,41 @@
  */
 (function( window ) {
 
+    function vestige( expression ) {
+
+    };
+
     // Establish the root object, `window` in the browser, or `exports` on the server.
-    var root = this;
+    var d = document;
 
     // Save bytes in the minified (but not gzipped) version:
     var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
     // Create quick reference variables for speed access to core prototypes.
-    var
-        push             = ArrayProto.push,
-        slice            = ArrayProto.slice,
-        concat           = ArrayProto.concat,
-        toString         = ObjProto.toString,
-        hasOwnProperty   = ObjProto.hasOwnProperty;
+//        push             = ArrayProto.push,
+        vestige.slice            = ArrayProto.slice;
+//        concat           = ArrayProto.concat,
+//        toString         = ObjProto.toString,
+//        hasOwnProperty   = ObjProto.hasOwnProperty;
+        vestige.keys            = Object.keys;
 
     // All **ECMAScript 5** native function implementations that we hope to use
     // are declared here.
     var
-        nativeForEach      = ArrayProto.forEach,
-        nativeMap          = ArrayProto.map,
-        nativeReduce       = ArrayProto.reduce,
-        nativeReduceRight  = ArrayProto.reduceRight,
-        nativeFilter       = ArrayProto.filter,
-        nativeEvery        = ArrayProto.every,
-        nativeSome         = ArrayProto.some,
-        nativeIndexOf      = ArrayProto.indexOf,
-        nativeLastIndexOf  = ArrayProto.lastIndexOf,
-        nativeIsArray      = Array.isArray,
-        nativeKeys         = Object.keys,
-        nativeBind         = FuncProto.bind;
+        nativeForEach      = ArrayProto.forEach;
+//        nativeMap          = ArrayProto.map,
+//        nativeReduce       = ArrayProto.reduce,
+//        nativeReduceRight  = ArrayProto.reduceRight,
+//        nativeFilter       = ArrayProto.filter,
+//        nativeEvery        = ArrayProto.every,
+//        nativeSome         = ArrayProto.some,
+//        nativeIndexOf      = ArrayProto.indexOf,
+//        nativeLastIndexOf  = ArrayProto.lastIndexOf,
+//        nativeIsArray      = Array.isArray,
+//        nativeKeys         = Object.keys,
+//        nativeBind         = FuncProto.bind;
 
-    function vestige() {
-    };
+
 
     // The cornerstone, an `each` implementation, aka `forEach`.
     // Handles objects with the built-in `forEach`, arrays, and raw objects.
@@ -48,7 +51,7 @@
                 if (iterator.call(context, obj[i], i, obj) === breaker) return;
             }
         } else {
-            var keys = _.keys(obj);
+            var keys = keys(obj);
             for (var i = 0, length = keys.length; i < length; i++) {
                 if (iterator.call(context, obj[keys[i]], keys[i], obj) === breaker) return;
             }
@@ -57,15 +60,20 @@
     };
 
     // Extend a given object with all the properties in passed-in object(s).
-    vestige.extend = function(obj) {
-        each(slice.call(arguments, 1), function(source) {
+    vestige.extend = vestige.e = function() {
+        var i = 1, target = arguments[0] || {};
+        if(arguments.length === i) {
+            target = this;
+            i--;
+        }
+        each(slice.call(arguments, i), function(source) {
             if (source) {
                 for (var prop in source) {
-                    obj[prop] = source[prop];
+                    target[prop] = source[prop];
                 }
             }
         });
-        return obj;
+        return target;
     };
 
     // EXPOSE

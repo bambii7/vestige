@@ -15,8 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'js/vestige.js',
-      'js/*.js',
+      'dist/*.js',
       'tests/**/*Spec.js'
     ],
 

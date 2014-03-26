@@ -25,6 +25,11 @@ describe("select DOM elements", function() {
         expect( elem.tagName ).toEqual( "HEADER" );
     });
 
+    it("should be able to select an Element via Class", function() {
+        var elem = v.select(".home");
+        expect( elem.tagName ).toEqual( "SPAN" );
+    });
+
     xit("",function(){
         expect().toEqual(1);
     });
