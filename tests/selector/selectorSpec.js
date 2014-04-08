@@ -18,6 +18,10 @@ describe("select DOM elements", function() {
         document.body.innerHTML = body;
     });
 
+    it("should return a new instance of vestige", function() {
+       v("#id");
+    });
+
     it("should be able to select en Element via ID",function(){
 //        console.log(  typeof v );
 //        console.log(v.toString() );
