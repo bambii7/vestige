@@ -35,7 +35,7 @@
      * @type {each}
      */
     v.each = function( obj, iterator, context ) {
-        var i = obj.length;
+        var i = obj.length || v.keys( obj ).length;
         if ( nativeForEach && nativeForEach === obj.forEach ) {
             obj.forEach(iterator, context);
         } else {
@@ -147,8 +147,6 @@ v.e({
             context.querySelectorAll( selector )
         );
         return results;
-    },
-    init: function( selector ) {
-        console.log('test');
     }
+    
 });

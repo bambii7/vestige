@@ -47,8 +47,6 @@ v.e({
             context.querySelectorAll( selector )
         );
         return results;
-    },
-    init: function( selector ) {
-        console.log('test');
     }
+    
 });

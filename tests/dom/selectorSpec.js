@@ -18,7 +18,7 @@ describe("select DOM elements", function() {
         document.body.innerHTML = body;
     });
 
-    it("should return a new instance of vestige", function() {
+    xit("should return a new instance of vestige", function() {
        v("#id");
     });
 
@@ -32,6 +32,20 @@ describe("select DOM elements", function() {
         expect( elems[0].tagName ).toEqual( "SPAN" );
     });
 
+    it("should be able to select a group by class",function(){
+        var elems = v.select(".icon");
+        v.each( elems, function( item ) {
+            expect(item.tagName).toEqual("SPAN");
+        } );
+    });
+    
+    it("should be able to handle simple css expressions",function(){
+        var elems = v.select("#header a");
+        v.each( elems, function( item ) {
+            expect(item.tagName).toEqual("A");
+        } );
+    });
+    
     xit("",function(){
         expect().toEqual(1);
     });

@@ -41,8 +41,8 @@ describe( "core vestige", function() {
             expect( typeof index ).toEqual("number");
         });
 
-        v.each({a: 'one', b: 'two', c: 'three'}, function( prop ) {
-            console.log( prop );
+        v.each({a: 'one', b: 'two', c: 'three', d: 'four'}, function( prop, key, object ) {
+            console.log(  );
         });
     });
 
