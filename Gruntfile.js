@@ -22,13 +22,13 @@ module.exports = function(grunt) {
 
         // ugly, exporting to min folder for individual size ref
         uglify: {
+            options: {
+                mangle: false
+            },
             target: {
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: '*.js',
-                    dest: 'min'
-                }]
+                files: {
+                    'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': ['dist/<%= pkg.name %>-v<%= pkg.version %>.js']
+                }
             }
         }
 

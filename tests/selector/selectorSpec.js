@@ -23,15 +23,13 @@ describe("select DOM elements", function() {
     });
 
     it("should be able to select en Element via ID",function(){
-//        console.log(  typeof v );
-//        console.log(v.toString() );
         var elem = v.select("#header");
         expect( elem.tagName ).toEqual( "HEADER" );
     });
 
     it("should be able to select an Element via Class", function() {
-        var elem = v.select(".home");
-        expect( elem.tagName ).toEqual( "SPAN" );
+        var elems = v.select(".home");
+        expect( elems[0].tagName ).toEqual( "SPAN" );
     });
 
     xit("",function(){

@@ -5,7 +5,7 @@
     "use strict";
 
     function v( expression ) {
-        return new v( expression ).init();
+        //return new v( expression ).init();
     }
 
     /**
@@ -24,7 +24,10 @@
     // **ECMAScript 5** native function (mainly IE8 support)
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
-
+    
+    v.push = arr.push;
+    v.test = 'this is a test';
+    
     /**
      * Helper function forEach/each
      * uses native if present on array
@@ -42,6 +45,8 @@
         }
         return obj;
     };
+    
+    ;
 
     v.keys = function( obj ) {
         var keys = [];

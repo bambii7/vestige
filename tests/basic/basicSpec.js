@@ -1,16 +1,16 @@
 //
 //xdescribe( "Basic Vestige Specs", function(){
-    it( "should have basic css expression selection", function(){} );
-    it( "should be easily extendable", function(){} );
-    it( "should be chainable", function(){} );
-    it( "should have onload helpers");
-    it( "should have elem creation ability for light add generation" );
-    it( "should have getters and setters for css properties", function(){} );
-    it( "should have getters and setters for element properties", function(){} );
-    it( "should have event delegation and triggers", function(){} );
-    it( "should have drag & drop + touch events (hammerjs)", function(){} );
-    it( "should have helper functions for sizeof, throttling, debounce", function(){} );
-    it( "should have animation ability", function(){} );
+//    it( "should have basic css expression selection", function(){} );
+//    it( "should be easily extendable", function(){} );
+//    it( "should be chainable", function(){} );
+//    it( "should have onload helpers");
+//    it( "should have elem creation ability for light add generation" );
+//    it( "should have getters and setters for css properties", function(){} );
+//    it( "should have getters and setters for element properties", function(){} );
+//    it( "should have event delegation and triggers", function(){} );
+//    it( "should have drag & drop + touch events (hammerjs)", function(){} );
+//    it( "should have helper functions for sizeof, throttling, debounce", function(){} );
+//    it( "should have animation ability", function(){} );
     // ideally will have a compiler to intelligently select the components used
     // compiler could also adopt project name space to keep the variables (&css classes away from the global document)
 //});
