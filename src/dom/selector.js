@@ -36,7 +36,6 @@ v.e({
             } else if ( match[2] ) {
                 v.push.apply( results, context.getElementsByTagName( selector ) );
                 return results;
-
             // Speed-up: .CLASS
             } else if ( (m = match[3]) && context.getElementsByClassName ) {
                 v.push.apply( results, context.getElementsByClassName( m ) );
