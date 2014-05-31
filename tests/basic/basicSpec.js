@@ -20,14 +20,30 @@ describe( "core vestige", function() {
     it( "should be able to extend objects", function() {
         var a = {foo: "bar"};
         var b = {hello: "world"};
+        var c = {baba: "motown"};
 
         // short hand
-        var result = v.e( a, b );
+        v.e( a, b );
         expect( Object.keys(a) ).toEqual( ['foo', 'hello'] );
         // long hand
-        var result = v.extend( a, b );
-        expect( Object.keys(a) ).toEqual( ['foo', 'hello'] );
+        v.extend( a, c );
+        expect( Object.keys(a) ).toEqual( ['foo', 'hello', 'baba'] );
     });
+    
+    it( "should be able to overide default objects", function() {
+        var defaults = {
+            foo: 'bar',
+            url: 'http://test.com',
+            type: 'json'
+        };
+        var props = {
+            hello: "world",
+            foo: 'pinkty pop'
+        };
+        v.extend( props, defaults );
+        expect( props.foo ).toEqual( 'bar' );
+        
+    } );
 
 
     it( "should be able to extend itself if only one object supplied", function() {
