@@ -18,7 +18,7 @@
         slice            = arr.slice,
         hasOwnProperty   = obj.hasOwnProperty;
 
-    // **ECMAScript 5** native function (mainly IE8 support)
+    // **ECMAScript 5** native function (IE8 support)
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
     
