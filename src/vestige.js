@@ -74,7 +74,7 @@
 
     /**
      * Simple extend functionality
-     * currently doesn't off deep support
+     * currently doesn't offer deep support
      * main purpose is for simple vestige extension
      * @type {e}
      */

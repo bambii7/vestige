@@ -155,8 +155,12 @@ v.e({
         return dom
     },
     
+    // functions for the returned Node
     vNode: {
-        each: v.arr.forEach
+        // each: v.arr.forEach // this work fine for above ie8
+        each: function( callback ) {
+            v.each( this, callback )
+        }
     }
 
 });;/**
