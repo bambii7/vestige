@@ -1,7 +1,7 @@
 /**
  * Created by alexis.hope on 25/03/14.
  */
-(function( window ) {
+(function( win, doc ) {
     "use strict";
 
     function v( expression ) {
@@ -22,7 +22,8 @@
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
     
-    
+    v.doc = doc;
+    v.win = win;
     v.arr = Array.prototype;
     v.push = arr.push;
     v.slice = arr.slice;
@@ -96,4 +97,4 @@
     // EXPOSE
     window.v = v;
 
-})( this );
+})( this, document );

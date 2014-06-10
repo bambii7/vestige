@@ -1,7 +1,7 @@
 /**
  * Created by alexis.hope on 25/03/14.
  */
-(function( window ) {
+(function( win, doc ) {
     "use strict";
 
     function v( expression ) {
@@ -18,11 +18,12 @@
         slice            = arr.slice,
         hasOwnProperty   = obj.hasOwnProperty;
 
-    // **ECMAScript 5** native function (IE8 support)
+    // **ECMAScript 5** native function (mainly IE8 support)
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
     
-    
+    v.doc = doc;
+    v.win = win;
     v.arr = Array.prototype;
     v.push = arr.push;
     v.slice = arr.slice;
@@ -74,7 +75,7 @@
 
     /**
      * Simple extend functionality
-     * currently doesn't off deep support
+     * currently doesn't offer deep support
      * main purpose is for simple vestige extension
      * @type {e}
      */
@@ -96,8 +97,13 @@
     // EXPOSE
     window.v = v;
 
-})( this );
-;/**
+})( this, document );
+;
+v.e({
+
+    create: v.doc.createElement
+    
+});;/**
  * Created by alexis.hope on 24/03/14.
  */
 
@@ -142,21 +148,35 @@ v.e({
             );
         }
         return results;
+    },
+    
+    init: function( expression ) {
+        dom = v.select( expression ) || []
+        dom.__proto__ = ( dom.tagName === undefined ) ? v.vNodeList : v.vElem
+        dom.selector = expression || ''
+        return dom
     }
     
 });
 ;
 v.e({
-
-    init: function( expression ) {
-        dom = v.select( expression ) || []
-        dom.__proto__ = v.vNode
-        dom.selector = expression || ''
-        return dom
-    },
     
-    // functions for the returned Node
-    vNode: {
+    vElem: {
+        set: function( name, value) {
+            console.log( v.keys( this ) );
+//            this.setAttribute( name, value )
+        }
+//        set: function( name, value) {
+//            console.log( name + value )
+//        }
+//        get: v.doc.getAttribute
+    }
+
+});;
+v.e({
+    
+    // functions for the returned NodeList
+    vNodeList: {
         // each: v.arr.forEach // this work fine for above ie8
         each: function( callback ) {
             v.each( this, callback )

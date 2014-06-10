@@ -20,8 +20,14 @@ describe("vNode", function() {
 
     it( "should be able to iterate over a collection", function(){
         v("#header .icon").each( function( item, key ) {
-            console.log( item.innerHTML );
+//            console.log( item.innerHTML );
         } );
+        expect( 1 ).toEqual( 1 );
+    } );
+    
+    it( "should be able to set and get html attributes", function(){
+        v("#header").set('title', 'this is a title');
+        console.log( v.keys( v('#header') ) );
         expect( 1 ).toEqual( 1 );
     } );
     

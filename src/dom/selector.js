@@ -43,6 +43,13 @@ v.e({
             );
         }
         return results;
+    },
+    
+    init: function( expression ) {
+        dom = v.select( expression ) || []
+        dom.__proto__ = ( dom.tagName === undefined ) ? v.vNodeList : v.vElem
+        dom.selector = expression || ''
+        return dom
     }
     
 });
