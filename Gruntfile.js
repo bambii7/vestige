@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                 separator: ';',
             },
             dist: {
-                src: ['src/vestige.js', 'src/*.js'],
+                src: ['src/vestige.js', 'src/**/*.js'],
                 dest: 'dist/<%= pkg.name %>-v<%= pkg.version %>.js',
             }
         },

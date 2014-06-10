@@ -49,7 +49,7 @@ describe( "core vestige", function() {
     it( "should be able to extend itself if only one object supplied", function() {
         v.e( {foo: "bar", increment: function( num ) { return ++num; }} );
         expect( v.foo ).toEqual( 'bar' );
-        expect(v.increment( 1 )).toEqual(2);
+        expect( v.increment( 1 ) ).toEqual( 2 );
     });
 
     it( "should be able to safely implement forEach", function() {

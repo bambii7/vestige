@@ -1,7 +1,7 @@
 /**
  * Created by alexis.hope on 25/03/14.
  */
-describe("select DOM elements", function() {
+describe("select DOM", function() {
 
     var body = "<div><header id='header'><ul>" +
         "<li><a><span class='icon home'>Home</span></a></li>" +

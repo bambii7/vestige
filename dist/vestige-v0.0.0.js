@@ -5,14 +5,11 @@
     "use strict";
 
     function v( expression ) {
-        //return new v( expression ).init();
+        return new v.init( expression );
     }
-
-    /**
-     * made to overwrite
-     */
+    
     v.init = function( expression ) {
-        console.log('proto init')
+        return this
     };
 
     // Create quick reference variables for speed access to core prototypes.
@@ -25,8 +22,10 @@
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
     
+    
+    v.arr = Array.prototype;
     v.push = arr.push;
-    v.test = 'this is a test';
+    v.slice = arr.slice;
     
     /**
      * Helper function forEach/each
@@ -34,7 +33,7 @@
      * and work around for objects
      * @type {each}
      */
-    v.each = function( obj, iterator, context ) {
+    v.each = v.forEach = function( obj, iterator, context ) {
         var i = obj.length || v.keys( obj ).length;
         if ( nativeForEach && nativeForEach === obj.forEach ) {
             obj.forEach(iterator, context);
@@ -116,11 +115,9 @@ v.e({
     select: function ( selector ) {
         //return document.querySelectorAll( selector );
         var match,
-            elem,
             m, // matching expression
             // Easily-parseable/retrievable ID or TAG or CLASS selectors
             rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
-            context = document,
             results = [];
 
         if ( !selector || typeof selector !== "string" ) {
@@ -131,22 +128,58 @@ v.e({
         if ( (match = rquickExpr.exec( selector )) ) {
             // Speed-up: #ID
             if ( (m = match[1]) ) {
-                return context.getElementById( m );
+                results = document.getElementById( m );
             // Speed-up: TAG
             } else if ( match[2] ) {
-                v.push.apply( results, context.getElementsByTagName( selector ) );
-                return results;
-
+                v.push.apply( results, document.getElementsByTagName( selector ) );
             // Speed-up: .CLASS
-            } else if ( (m = match[3]) && context.getElementsByClassName ) {
-                v.push.apply( results, context.getElementsByClassName( m ) );
-                return results;
+            } else if ( (m = match[3]) && document.getElementsByClassName ) {
+                v.push.apply( results, document.getElementsByClassName( m ) );
             }
+        } else {
+            v.push.apply( results,
+                document.querySelectorAll( selector )
+            );
         }
-        v.push.apply( results,
-            context.querySelectorAll( selector )
-        );
         return results;
     }
     
+});
+;
+v.e({
+
+    init: function( expression ) {
+        dom = v.select( expression ) || []
+        dom.__proto__ = v.vNode
+        dom.selector = expression || ''
+        return dom
+    },
+    
+    vNode: {
+        each: v.arr.forEach
+    }
+
+});;/**
+ * XMLHttpRequest state codes
+ * 0 (uninitialized)
+ * 1 (loading)
+ * 2 (loaded)
+ * 3 (interactive)
+ * 4 (complete)
+ **/
+v.e({
+    
+    ajax: function( options ) {
+        var httpRequest, defaults;
+        if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+            httpRequest = new XMLHttpRequest();
+        } else {
+            console.log('Cannot create an XMLHTTP instance');
+            return false;
+        }
+        httpRequest.onreadystatechange = alertContents;
+        httpRequest.open('GET', url);
+        httpRequest.send();
+    }
+
 });

@@ -5,14 +5,11 @@
     "use strict";
 
     function v( expression ) {
-        //return new v( expression ).init();
+        return new v.init( expression );
     }
-
-    /**
-     * made to overwrite
-     */
+    
     v.init = function( expression ) {
-        console.log('proto init')
+        return this
     };
 
     // Create quick reference variables for speed access to core prototypes.
@@ -25,8 +22,10 @@
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
     
+    
+    v.arr = Array.prototype;
     v.push = arr.push;
-    v.test = 'this is a test';
+    v.slice = arr.slice;
     
     /**
      * Helper function forEach/each
@@ -34,7 +33,7 @@
      * and work around for objects
      * @type {each}
      */
-    v.each = function( obj, iterator, context ) {
+    v.each = v.forEach = function( obj, iterator, context ) {
         var i = obj.length || v.keys( obj ).length;
         if ( nativeForEach && nativeForEach === obj.forEach ) {
             obj.forEach(iterator, context);
