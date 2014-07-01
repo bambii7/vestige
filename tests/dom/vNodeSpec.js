@@ -19,13 +19,15 @@ describe("vNode", function() {
     });
 
     it( "should be able to iterate over a collection", function(){
+        var i = 0;
         v("#header .icon").each( function( item, key ) {
-//            console.log( item.innerHTML );
+            i++;
+            expect( item.tagName ).toEqual( 'SPAN' );
         } );
-        expect( 1 ).toEqual( 1 );
+        expect( i ).toEqual( 5 );
     } );
     
-    it( "should be able to set and get html attributes", function(){
+    xit( "should be able to set and get html attributes", function(){
         v("#header").set('title', 'this is a title');
         console.log( v.keys( v('#header') ) );
         expect( 1 ).toEqual( 1 );

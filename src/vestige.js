@@ -46,8 +46,6 @@
         return obj;
     };
     
-    ;
-
     v.keys = function( obj ) {
         var keys = [];
         if ( nativeKeys ) {
@@ -93,6 +91,7 @@
         });
         return target;
     };
+    
 
     // EXPOSE
     window.v = v;

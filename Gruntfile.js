@@ -8,7 +8,15 @@ module.exports = function(grunt) {
         qunit: {
             all: ['test/index.html', 'test/loading.html']
         },
-
+        
+        // watch
+        watch: {
+            js: {
+                files: ['src/**/*.js'],
+                tasks: ['concat', 'uglify']
+            }
+        },
+        
         // compress
         concat: {
             options: {
@@ -27,7 +35,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': ['dist/<%= pkg.name %>-v<%= pkg.version %>.js']
+                    'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': 'dist/<%= pkg.name %>-v<%= pkg.version %>.js'
                 }
             }
         }
@@ -37,8 +45,9 @@ module.exports = function(grunt) {
     //Dependencies.
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     //Tasks.
-    grunt.registerTask('default', ['uglify', 'concat']);
+    grunt.registerTask('default', ['watch']);
 
 };

@@ -3,13 +3,14 @@
 //    it( "should have basic css expression selection", function(){} );
 //    it( "should be easily extendable", function(){} );
 //    it( "should be chainable", function(){} );
-//    it( "should have onload helpers");
-//    it( "should have elem creation ability for light add generation" );
-//    it( "should have getters and setters for css properties", function(){} );
-//    it( "should have getters and setters for element properties", function(){} );
-//    it( "should have event delegation and triggers", function(){} );
-//    it( "should have drag & drop + touch events (hammerjs)", function(){} );
-//    it( "should have helper functions for sizeof, throttling, debounce", function(){} );
+//    xit( "should have onload helpers");
+//    xit( "should have elem creation ability for light add generation" );
+//    xit( "should have classList like support", function(){} );
+//    xit( "should have getters and setters for css properties", function(){} );
+//    xit( "should have getters and setters for element properties", function(){} );
+//    xit( "should have event delegation and triggers", function(){} );
+//    xit( "should have helper functions for sizeof, throttling, debounce", function(){} );
+//    xit( "should have drag & drop + touch events (hammerjs)", function(){} );
 //    it( "should have animation ability", function(){} );
     // ideally will have a compiler to intelligently select the components used
     // compiler could also adopt project name space to keep the variables (&css classes away from the global document)
@@ -47,9 +48,15 @@ describe( "core vestige", function() {
 
 
     it( "should be able to extend itself if only one object supplied", function() {
-        v.e( {foo: "bar", increment: function( num ) { return ++num; }} );
+        v.e( {foo: 'bar', increment: function( num ) { return ++num; }} );
         expect( v.foo ).toEqual( 'bar' );
         expect( v.increment( 1 ) ).toEqual( 2 );
+    });
+    it( "should compress multiple objects into a new object if more than one argument supplied", function() {
+        var obj = v.e( {foo: 'bar'}, {mo: 'fo'}, {toto: 'dorothy'} );
+        expect( obj.foo ).toEqual( 'bar' );
+        expect( obj.mo ).toEqual( 'fo' );
+        expect( obj.toto ).toEqual( 'dorothy' );
     });
 
     it( "should be able to safely implement forEach", function() {
