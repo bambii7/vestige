@@ -27,6 +27,14 @@ describe("vNode", function() {
         expect( i ).toEqual( 5 );
     } );
     
+    it( "should convert iteration elements to vElem", function(){
+        var i = 0;
+        v("#header .icon").each( function( item, key ) {
+            item.addClass( 'test' );
+            expect( item.tagName ).toEqual( 'SPAN' );
+        } );
+    } );
+    
     xit( "should be able to set and get html attributes", function(){
         v("#header").set('title', 'this is a title');
         console.log( v.keys( v('#header') ) );
