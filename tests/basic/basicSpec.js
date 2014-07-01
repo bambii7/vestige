@@ -6,7 +6,7 @@
 //    xit( "should have onload helpers");
 //    xit( "should have elem creation ability for light add generation" );
 //    it( "should have classList like support", function(){} );
-//    xit( "should have getters and setters for css properties", function(){} );
+//    it( "should have getters and setters for css properties", function(){} );
 //    xit( "should have getters and setters for element properties", function(){} );
 //    xit( "should have event delegation and triggers", function(){} );
 //    xit( "should have helper functions for sizeof, throttling, debounce", function(){} );

@@ -44,7 +44,7 @@
     };
     
     // zepto inspired css property setter & getter
-    vElem.prototype.css = function(property, value){
+    vElem.prototype.css = function( property, value ){
         if(arguments.length < 2) {
             // one arg, user must want a getter
             return this.style[v.str.camelize(property)];
@@ -52,6 +52,16 @@
         this.style[v.str.camelize(property)] = value;
         return this;
     }
+    
+    // basic attr get & setter using paleo html
+    vElem.prototype.attr = function( attr, value ) {
+        if( arguments.length < 2 ) {
+            return this.getAttribute( attr );
+        } else {
+            this.setAttribute( attr, value );
+        }
+        return this;
+    };
     
     v.e({Elem: vElem.prototype});
     

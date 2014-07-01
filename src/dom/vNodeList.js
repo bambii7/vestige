@@ -10,6 +10,11 @@ v.e({
                 callback( el, i, context )
             }
             v.each( this, jit )
+        },
+        first: function() {
+            var elem = this[0];
+            elem.__proto__ = v.Elem;
+            return elem;
         }
     }
 

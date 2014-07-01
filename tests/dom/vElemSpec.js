@@ -12,6 +12,7 @@ describe("vNode", function() {
         "</ul></header>" +
         "<section id='content'>Here is some body content</section>" +
         "<footer></footer>" +
+        "<input name='meaningful' type='text' value='mostmeaningful' />" +
         "</div>";
 
     beforeEach(function() {
@@ -56,6 +57,12 @@ describe("vNode", function() {
         elem.addClass( 'test1' ).addClass( 'test2' ).addClass( 'test3' ).removeClass( 'test2' ).toggleClass( 'test1' );
         expect( elem.className ).toEqual( 'test3' );
     } );
+    
+    it("should be able to get attributes of an element via helper function attr",function(){
+        var elem = v('input').first();
+        console.log( elem.tagName );
+        expect( elem.attr('value') ).toEqual(1);
+    });   
     
     xit("",function(){
         expect().toEqual(1);
