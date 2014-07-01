@@ -47,7 +47,7 @@ v.e({
     
     init: function( expression ) {
         dom = v.select( expression ) || []
-        dom.__proto__ = ( dom.tagName === undefined ) ? v.vNodeList : v.vElem
+        dom.__proto__ = ( dom.tagName === undefined ) ? v.NodeList : v.Elem
         dom.selector = expression || ''
         return dom
     }

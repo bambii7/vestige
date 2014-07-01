@@ -5,7 +5,7 @@
 //    it( "should be chainable", function(){} );
 //    xit( "should have onload helpers");
 //    xit( "should have elem creation ability for light add generation" );
-//    xit( "should have classList like support", function(){} );
+//    it( "should have classList like support", function(){} );
 //    xit( "should have getters and setters for css properties", function(){} );
 //    xit( "should have getters and setters for element properties", function(){} );
 //    xit( "should have event delegation and triggers", function(){} );

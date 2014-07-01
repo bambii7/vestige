@@ -183,7 +183,7 @@ v.e({
     
     init: function( expression ) {
         dom = v.select( expression ) || []
-        dom.__proto__ = ( dom.tagName === undefined ) ? v.vNodeList : v.vElem
+        dom.__proto__ = ( dom.tagName === undefined ) ? v.NodeList : v.Elem
         dom.selector = expression || ''
         return dom
     }
@@ -234,13 +234,23 @@ v.e({
         }
     };
     
-    v.e({vElem: vElem.prototype});
+    // zepto inspired css property setter & getter
+    vElem.prototype.css = function(property, value){
+        if(arguments.length < 2) {
+            // one arg, user must want a getter
+            return this.style[v.str.camelize(property)];
+        }
+        this.style[v.str.camelize(property)] = value;
+        return this;
+    }
+    
+    v.e({Elem: vElem.prototype});
     
 })(v);
 v.e({
     
     // functions for the returned NodeList
-    vNodeList: {
+    NodeList: {
         // each: v.arr.forEach // this work fine for above ie8
         each: function( callback ) {
             v.each( this, callback )
@@ -326,4 +336,25 @@ v.e({
         v.ajax( {url: url, data: data, REST: "POST"}, callback );
     }
 
-});
+});;(function(v){
+    
+    function vStr() {
+        
+    }
+    
+    // zepto camlize
+    vStr.prototype.camelize = function( str ){
+        return str.replace(/-+(.)?/g, function(match, chr){ return chr ? chr.toUpperCase() : '' })
+    }
+    
+    vStr.prototype.dasherize = function(str) {
+        return str.replace(/::/g, '/')
+           .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+           .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+           .replace(/_/g, '-')
+           .toLowerCase()
+    }
+    
+    v.e({str: vStr.prototype});
+    
+})(v)

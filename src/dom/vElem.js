@@ -43,6 +43,16 @@
         }
     };
     
-    v.e({vElem: vElem.prototype});
+    // zepto inspired css property setter & getter
+    vElem.prototype.css = function(property, value){
+        if(arguments.length < 2) {
+            // one arg, user must want a getter
+            return this.style[v.str.camelize(property)];
+        }
+        this.style[v.str.camelize(property)] = value;
+        return this;
+    }
+    
+    v.e({Elem: vElem.prototype});
     
 })(v)
