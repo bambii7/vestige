@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         qunit: {
             all: ['test/index.html', 'test/loading.html']
         },
-        
+
         // watch
         watch: {
             js: {
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'uglify']
             }
         },
-        
+
         // compress
         concat: {
             options: {
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         // ugly, exporting to min folder for individual size ref
         uglify: {
             options: {
-                mangle: false
+                mangle: true
             },
             target: {
                 files: {

@@ -98,43 +98,7 @@
 
 })( this, document );
 ;
-v.e({
-
-    create: v.doc.createElement,
-    
-//    serializeObject: function( Object ) {
-//        var o = {};
-//        var a = this.serializeArray();
-//        v.each(a, function() {
-//            if (o[this.name] !== undefined) {
-//                if (!o[this.name].push) {
-//                    o[this.name] = [o[this.name]];
-//                }
-//                o[this.name].push(this.value || '');
-//            } else {
-//                o[this.name] = this.value || '';
-//            }
-//        });
-//        return o;
-//    },
-//        
-//    $.fn.serializeArray: function() {
-//        var result = [], el
-//        $([].slice.call(this.get(0).elements)).each(function(){
-//        el = $(this)
-//        var type = el.attr('type')
-//        if (this.nodeName.toLowerCase() != 'fieldset' &&
-//        !this.disabled && type != 'submit' && type != 'reset' && type != 'button' &&
-//        ((type != 'radio' && type != 'checkbox') || this.checked))
-//        result.push({
-//        name: el.attr('name'),
-//        value: el.val()
-//        })
-//        })
-//        return result
-//    }
-    
-});;/**
+;/**
  * Created by alexis.hope on 24/03/14.
  */
 
@@ -258,11 +222,11 @@ v.e({
     
 })(v);
 v.e({
-    
+
     // functions for the returned NodeList
     NodeList: {
         each: function( callback ) {
-            // jit convert elem to vElem
+            // jit convert elem to vElem (this needs more work)
             function jit( el, i, context ) {
                 el.__proto__ = v.Elem;
                 callback( el, i, context )
@@ -271,12 +235,13 @@ v.e({
         },
         first: function() {
             var elem = this[0];
-            elem.__proto__ = v.Elem;
+            v.e(elem, v.Elem);
             return elem;
         }
     }
 
-});;/**
+});
+;/**
  * XMLHttpRequest state codes
  * 0 (uninitialized)
  * 1 (loading)
@@ -355,25 +320,4 @@ v.e({
         v.ajax( {url: url, data: data, REST: "POST"}, callback );
     }
 
-});;(function(v){
-    
-    function vStr() {
-        
-    }
-    
-    // zepto camlize
-    vStr.prototype.camelize = function( str ){
-        return str.replace(/-+(.)?/g, function(match, chr){ return chr ? chr.toUpperCase() : '' })
-    }
-    
-    vStr.prototype.dasherize = function(str) {
-        return str.replace(/::/g, '/')
-           .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
-           .replace(/([a-z\d])([A-Z])/g, '$1_$2')
-           .replace(/_/g, '-')
-           .toLowerCase()
-    }
-    
-    v.e({str: vStr.prototype});
-    
-})(v)
+});

@@ -13,7 +13,7 @@ v.e({
         },
         first: function() {
             var elem = this[0];
-            elem.__proto__ = v.Elem;
+            v.e(elem, v.Elem);
             return elem;
         }
     }

@@ -24,7 +24,7 @@ describe("vNode", function() {
         elem.addClass( 'test' );
         expect( elem.className ).toEqual( 'test' );
     } );
-    
+
     it( "should be able to remove a class", function(){
         var elem = v("#header");
         elem.addClass( 'test1' );
@@ -32,8 +32,8 @@ describe("vNode", function() {
         elem.addClass( 'test3' );
         elem.removeClass( 'test2' );
         expect( elem.className ).toEqual( 'test1 test3' );
-    } ); 
-    
+    } );
+
     it( "should be able to toggle a class", function(){
         var elem = v("#header");
         elem.addClass( 'test1' );
@@ -42,8 +42,8 @@ describe("vNode", function() {
         elem.toggleClass( 'test2' );
         elem.toggleClass( 'test1' );
         expect( elem.className ).toEqual( 'test3' );
-    } );     
-    
+    } );
+
     it( "should return true|false if it contains a class", function(){
         var elem = v("#header");
         elem.addClass( 'test1' );
@@ -51,21 +51,20 @@ describe("vNode", function() {
         expect( elem.hasClass( 'test1' ) ).toEqual( true );
         expect( elem.hasClass( 'test2' ) ).toEqual( false );
     } );
-    
+
     it( "should have chainable class functions", function(){
         var elem = v("#header");
         elem.addClass( 'test1' ).addClass( 'test2' ).addClass( 'test3' ).removeClass( 'test2' ).toggleClass( 'test1' );
         expect( elem.className ).toEqual( 'test3' );
     } );
-    
+
     it("should be able to get attributes of an element via helper function attr",function(){
         var elem = v('input').first();
-        console.log( elem.tagName );
-        expect( elem.attr('value') ).toEqual(1);
-    });   
-    
+        expect( elem.attr('value') ).toEqual('mostmeaningful');
+    });
+
     xit("",function(){
         expect().toEqual(1);
     });
 
-});    
+});
