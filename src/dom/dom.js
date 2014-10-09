@@ -2,7 +2,11 @@
 v.e({
 
     create: v.doc.createElement,
-    
+    /*
+     * TODO: add object seralisation for ajax form submision
+     * TODO: add element creation (with support for namespaced SVG)
+     * /
+     *
 //    serializeObject: function( Object ) {
 //        var o = {};
 //        var a = this.serializeArray();
@@ -18,7 +22,7 @@ v.e({
 //        });
 //        return o;
 //    },
-//        
+//
 //    $.fn.serializeArray: function() {
 //        var result = [], el
 //        $([].slice.call(this.get(0).elements)).each(function(){
@@ -34,5 +38,5 @@ v.e({
 //        })
 //        return result
 //    }
-    
+
 });
