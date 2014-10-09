@@ -17,7 +17,7 @@ I recommend using Vestige with other light weight libs like [sole/tween.js](http
 
 Aims
 ---
-* Stay below 10kb minified (not gzipped)
+* Stay below 10kb minified not gzipped (currently sitting at 2.9kb minified)
 * IE9 Support and up
 * Support for all other major HTML5 browsers (Chrome, FireFox, IE11, IOS, Android)
 * DOM selection expressions `v('#mydiv li')`
