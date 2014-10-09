@@ -13,6 +13,7 @@ Vestige is a lite DOM helper option.
 
 Aims
 ---
+* Stay below 10kb minified (not gzipped)
 * IE9 Support and up
 * IOS Support
 * Android Support
@@ -20,4 +21,4 @@ Aims
 * DOM selection expressions `v('#mydiv li')`
 * Element attribute manipulation `v('#username').attr('value')`
 * Element css manipulation `v('#container').css('background','red')`
-* Ajax support `v.post('http://example.com',{myvar:true}, function(){concole.log('complete')})`
+* Ajax support `v.post('http://example.com', {myvar:true}, function(){concole.log('complete')})`
