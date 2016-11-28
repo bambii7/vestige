@@ -3,10 +3,9 @@
  */
 
 v.e({
-    
+
     /**
-     * Selector function from Sizzle lib
-     * Assumptions
+     * Assumptions, these help keep the selector function lean
      *      1: context is always document
      *      2: context is always HTML
      *      3: selectors are never document rooted
@@ -44,12 +43,12 @@ v.e({
         }
         return results;
     },
-    
+
     init: function( expression ) {
         dom = v.select( expression ) || []
         dom.__proto__ = ( dom.tagName === undefined ) ? v.NodeList : v.Elem
         dom.selector = expression || ''
         return dom
     }
-    
+
 });
