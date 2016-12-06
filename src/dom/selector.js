@@ -5,6 +5,9 @@
 v.e({
 
     /**
+     * select function simplifies dom selection by identifing differences between
+     * class id or tag selections. And always returns an Array rather than a NodeList
+     *
      * Assumptions, these help keep the selector function lean
      *      1: context is always document
      *      2: context is always HTML
@@ -13,7 +16,6 @@ v.e({
      * @return Array | Node
      **/
     select: function ( selector ) {
-        //return document.querySelectorAll( selector );
         var match,
             m, // matching expression
             // Easily-parseable/retrievable ID or TAG or CLASS selectors
@@ -50,5 +52,6 @@ v.e({
         dom.selector = expression || ''
         return dom
     }
+
 
 });
