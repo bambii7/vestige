@@ -1,16 +1,10 @@
-/**
- * Created by alexis.hope on 25/03/14.
- */
+
 (function( win, doc ) {
     "use strict";
 
-    function v( expression ) {
-        return new v.init( expression );
+    function v(expression) {
+        return new v.select(expression);
     }
-    
-    v.init = function( expression ) {
-        return this
-    };
 
     // Create quick reference variables for speed access to core prototypes.
     var arr              = Array.prototype,
@@ -21,16 +15,15 @@
     // **ECMAScript 5** native function (mainly IE8 support)
     var nativeForEach    = arr.forEach,
         nativeKeys       = obj.keys;
-    
+
     v.doc = doc;
     v.win = win;
     v.arr = Array.prototype;
     v.push = arr.push;
     v.slice = arr.slice;
-    
+
     /**
-     * Helper function forEach/each
-     * uses native if present on array
+     * Helper function forEach/each uses native if present on array
      * and work around for objects
      * @type {each}
      */
@@ -45,7 +38,7 @@
         }
         return obj;
     };
-    
+
     v.keys = function( obj ) {
         var keys = [];
         if ( nativeKeys ) {
@@ -63,17 +56,27 @@
 
     /**
      * return the size of Array or Object
-     * @from _.underscore
      * @param obj
-     * @returns {*}
+     * @return {*}
      */
     v.size = function( obj ) {
         return (obj.length === +obj.length) ? obj.length : v.keys(obj).length;
     };
+    
+    /**
+     * return boolean if obj is iterable
+     * @param obj
+     * @return boolean
+     */
+    v.isIterable = function (obj) {
+      if (obj == null) {
+        return false;
+      }
+      return typeof obj[Symbol.iterator] === 'function';
+    };
 
     /**
-     * Simple extend functionality
-     * currently doesn't offer deep support
+     * Simple extend functionality currently doesn't offer deep support
      * main purpose is for simple vestige extension
      * @type {e}
      */
@@ -91,7 +94,6 @@
         });
         return target;
     };
-    
 
     // EXPOSE
     window.v = v;

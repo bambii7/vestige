@@ -25,3 +25,6 @@ Aims
 * Element css manipulation `v('#container').css('background','red')`
 * Ajax support `v.post('http://example.com', {myvar:true}, function(){concole.log('complete')})`
 *  Safe forEach on Arrays or Objects
+
+## Build
+`grunt build`

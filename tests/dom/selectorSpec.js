@@ -19,10 +19,7 @@ describe("select DOM", function() {
   });
 
     it("should be able to select en Element via ID",function(){
-      var div = document.createElement("div");
-      div.id = 'header';
-      document.body.appendChild(div);
-      var elem = v.select("#header");
+      var elem = v("#header");
       expect(elem.tagName).toEqual("HEADER");
     });
 

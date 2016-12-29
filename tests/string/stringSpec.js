@@ -12,8 +12,4 @@ describe( "string", function() {
         expect( v.str.dasherize('marginBottom') ).toEqual('margin-bottom');
     });
 
-    xit("",function(){
-        expect().toEqual(1);
-    });
-
 });

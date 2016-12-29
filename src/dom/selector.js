@@ -20,7 +20,8 @@ v.e({
             m, // matching expression
             // Easily-parseable/retrievable ID or TAG or CLASS selectors
             rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
-            results = [];
+            results = [],
+            dom;
 
         if ( !selector || typeof selector !== "string" ) {
             throw "Must select with a valid string";
@@ -43,15 +44,15 @@ v.e({
                 document.querySelectorAll( selector )
             );
         }
-        return results;
-    },
 
-    init: function( expression ) {
-        dom = v.select( expression ) || []
-        dom.__proto__ = ( dom.tagName === undefined ) ? v.NodeList : v.Elem
-        dom.selector = expression || ''
-        return dom
+        // wrap the selection in helper functions
+        dom = results || []
+        v.isIterable(dom) ? v.extend(dom, v.NodeList) : v.extend(dom, v.Elem);
+        
+        dom.selector = selector || ''
+
+        console.log('dom selection', dom)
+        return dom;
     }
-
 
 });

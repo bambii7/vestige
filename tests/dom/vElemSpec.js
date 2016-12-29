@@ -1,7 +1,7 @@
 /**
  * Created by alexis.hope on 25/03/14.
  */
-describe("vNode", function() {
+describe("vElem", function() {
 
   var body = "<div><header id='header'><ul>" +
       "<li><a><span class='icon home'>Home</span></a></li>" +
@@ -20,6 +20,7 @@ describe("vNode", function() {
 
     it ("should be able to add a class", function() {
         var elem = v("#header");
+        console.log(elem)
         elem.addClass('test');
         expect(elem.className).toEqual('test');
     });
@@ -57,7 +58,7 @@ describe("vNode", function() {
         expect(elem.className).toEqual('test3');
     });
 
-    it("should be able to get attributes of an element via helper function attr", function() {
+    xit("should be able to get attributes of an element via helper function attr", function() {
         var elem = v('input').first();
         expect(elem.attr('value')).toEqual('mostmeaningful');
     });
