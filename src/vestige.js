@@ -81,7 +81,7 @@
      * @type {e}
      */
     v.extend = v.e = function() {
-        var i = 1, target = arguments[0] || {};
+        var i = 1, target = arguments[0];
         // extend self if only one arg
         if(arguments.length === i) {
             target = this;
