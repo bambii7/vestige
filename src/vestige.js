@@ -7,7 +7,7 @@
     }
 
     // Create quick reference variables for speed access to core prototypes.
-    var arr              = Array.prototype,
+    let arr              = Array.prototype,
         obj              = Object.prototype,
         slice            = arr.slice,
         hasOwnProperty   = obj.hasOwnProperty;

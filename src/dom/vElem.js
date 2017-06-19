@@ -63,7 +63,7 @@
         return this;
     };
 
-    // @TODO add support for html getter setter
+    // TODO: add support for html getter setter
 
     v.e({Elem: vElem});
 

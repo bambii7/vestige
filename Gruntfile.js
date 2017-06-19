@@ -38,6 +38,18 @@ module.exports = function(grunt) {
                     'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': 'dist/<%= pkg.name %>-v<%= pkg.version %>.js'
                 }
             }
+        },
+      
+        babel: {
+            options: {
+                sourceMap: true,
+                presets: ['es2015']
+            },
+            dist: {
+                files: {
+                    'dist/<%= pkg.name %>-v<%= pkg.version %>.js': 'dist/<%= pkg.name %>-v<%= pkg.version %>.js'
+                }
+            }
         }
 
     });
@@ -46,9 +58,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-babel');
 
     //Tasks.
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['concat', 'uglify']);
+    grunt.registerTask('build', ['concat', 'babel', 'uglify']);
 
 };
