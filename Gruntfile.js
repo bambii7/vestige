@@ -5,9 +5,6 @@ module.exports = function(grunt) {
     //Configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json') ,
-        qunit: {
-            all: ['test/index.html', 'test/loading.html']
-        },
 
         // watch
         watch: {
