@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         // compress
         concat: {
             options: {
-                separator: ';',
+                separator: ';'
             },
             dist: {
                 src: ['src/vestige.js', 'src/**/*.js'],
