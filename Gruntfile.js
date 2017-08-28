@@ -21,7 +21,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: ['src/vestige.js', 'src/**/*.js'],
-                dest: 'dist/<%= pkg.name %>-v<%= pkg.version %>.js',
+                dest: 'build/<%= pkg.name %>-v<%= pkg.version %>.js',
             }
         },
 
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': 'dist/<%= pkg.name %>-v<%= pkg.version %>.js'
+                    'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': 'build/<%= pkg.name %>-v<%= pkg.version %>.js'
                 }
             }
         },
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name %>-v<%= pkg.version %>.js': 'dist/<%= pkg.name %>-v<%= pkg.version %>.js'
+                    'dist/<%= pkg.name %>-v<%= pkg.version %>.js': 'build/<%= pkg.name %>-v<%= pkg.version %>.js'
                 }
             }
         }
