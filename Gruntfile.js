@@ -32,7 +32,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'dist/<%= pkg.name %>-v<%= pkg.version %>.min.js': 'build/<%= pkg.name %>-v<%= pkg.version %>.js'
+                    'build/<%= pkg.name %>-v<%= pkg.version %>.min.js': 'build/<%= pkg.name %>-v<%= pkg.version %>.js'
                 }
             }
         },
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name %>-v<%= pkg.version %>.js': 'build/<%= pkg.name %>-v<%= pkg.version %>.js'
+                    'build/<%= pkg.name %>-v<%= pkg.version %>.js': 'build/<%= pkg.name %>-v<%= pkg.version %>.js'
                 }
             }
         }
