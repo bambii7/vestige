@@ -20,7 +20,7 @@
 v.e({
 
     ajax: function( options, callback ) {
-        var httpRequest, defaults;
+        let httpRequest, defaults
         if (window.XMLHttpRequest) {
             httpRequest = new XMLHttpRequest();
         } else {
@@ -66,7 +66,7 @@ v.e({
     },
 
     ajaxError: function( error ) {
-        console.log( 'V AJAX Error: ' + error );
+        throw `V AJAX Error: ${error}`
     },
 
     // short hand for post
