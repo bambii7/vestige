@@ -15,44 +15,43 @@ v.e({
      * @param selector:String
      * @return Array | Node
      **/
-    select: function ( selector ) {
-        var match,
+    select: function (selector) {
+        let match,
             m, // matching expression
             // Easily-parseable/retrievable ID or TAG or CLASS selectors
             rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
             results = [],
-            dom;
+            dom
 
-        if ( !selector || typeof selector !== "string" ) {
-            throw "Must select with a valid string";
+        if (!selector || typeof selector !== "string") {
+          throw "Must select with a valid string"
         }
 
         // Shortcuts
-        if ( (match = rquickExpr.exec( selector )) ) {
-            // Speed-up: #ID
-            if ( (m = match[1]) ) {
-                results = document.getElementById( m );
-            // Speed-up: TAG
-            } else if ( match[2] ) {
-                v.push.apply( results, document.getElementsByTagName( selector ) );
-            // Speed-up: .CLASS
-            } else if ( (m = match[3]) && document.getElementsByClassName ) {
-                v.push.apply( results, document.getElementsByClassName( m ) );
-            }
+        if ((match = rquickExpr.exec(selector))) {
+          // Speed-up: #ID
+          if ((m = match[1])) {
+            results = document.getElementById(m)
+          // Speed-up: TAG
+          } else if (match[2]) {
+            v.push.apply(results, document.getElementsByTagName(selector))
+          // Speed-up: .CLASS
+          } else if ((m = match[3]) && document.getElementsByClassName) {
+            v.push.apply(results, document.getElementsByClassName(m))
+          }
         } else {
-            v.push.apply( results,
-                document.querySelectorAll( selector )
-            );
+          v.push.apply(results,
+            document.querySelectorAll(selector)
+          )
         }
 
         // wrap the selection in helper functions
         dom = results || []
-        v.isIterable(dom) ? v.extend(dom, v.NodeList) : v.extend(dom, v.Elem);
+        v.isIterable(dom) ? v.extend(dom, v.NodeList) : v.extend(dom, v.Elem)
         
         dom.selector = selector || ''
 
-        console.log('dom selection', dom)
-        return dom;
+        return dom
     }
 
 });
