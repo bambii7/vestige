@@ -24,8 +24,7 @@ v.e({
         if (window.XMLHttpRequest) {
             httpRequest = new XMLHttpRequest();
         } else {
-            console.log('Cannot create an XMLHTTP instance');
-            return false;
+          throw 'Cannot create an XMLHTTP instance'
         }
 
         // support short hand, assume options is a URL
